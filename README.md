@@ -2,6 +2,15 @@
 
 Linter checks that no named returns are present in Go code.
 
+## Changelog
+
+### [Unreleased]
+
+#### Added
+* Go Analyzer to report named return values usage
+* Main package to run singlechecker
+* MIT [license](LICENSE)
+
 ## License
 
 [MIT License](LICENSE)

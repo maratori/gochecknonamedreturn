@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"golang.org/x/tools/go/analysis/singlechecker"
+
+	"github.com/maratori/gochecknonamedreturn/gochecknonamedreturn"
+)
 
 func main() {
-	fmt.Print("TBD")
+	singlechecker.Main(gochecknonamedreturn.Analyzer)
 }
