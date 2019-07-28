@@ -34,7 +34,7 @@ linters-settings:
   gocyclo:
     min-complexity: 15 # default 30
   goimports:
-    local-prefixes: github.com/maratori/pt
+    local-prefixes: github.com/maratori/gochecknonamedreturn
   golint:
     min-confidence: 0.8 # default 0.8
   lll:
@@ -45,7 +45,7 @@ linters-settings:
     locale: us
     ignore-words: "" # default: ""
   nakedret:
-    max-func-lines: 30 # default 30
+    max-func-lines: 0 # default 30
   prealloc:
     simple: false # default true
     range-loops: true # default true
