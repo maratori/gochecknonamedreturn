@@ -9,9 +9,10 @@ import (
 	"golang.org/x/tools/go/ast/inspector"
 )
 
+// Analyzer that reports usage of functions with named return value
 var Analyzer = &analysis.Analyzer{ // nolint:gochecknoglobals
 	Name:     "gochecknonamedreturn",
-	Doc:      "report using functions with named return value",
+	Doc:      "report usage of functions with named return value",
 	Run:      run,
 	Requires: []*analysis.Analyzer{inspect.Analyzer},
 }
