@@ -5,7 +5,7 @@ go:
 env:
   global:
     - GO111MODULE=on
-before_script:
+install:
   - |
     if [ $TRAVIS_GO_VERSION  = "1.12.x" ]; then
       curl -sSfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | bash -s -- -b $GOPATH/bin v1.17.1
@@ -14,7 +14,7 @@ before_script:
 script:
   - |
     if [ $TRAVIS_GO_VERSION  = "1.12.x" ]; then
-      go test -race -p=8 -parallel=8 -coverprofile=coverage.out ./...
+      go test -race -p=8 -parallel=8 -coverpkg ./... -coverprofile=coverage.out ./...
 
       golangci-lint run
 
