@@ -6,11 +6,14 @@ env:
 install:
   - curl -sSfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | bash -s -- -b $GOPATH/bin v1.17.1
   - golangci-lint --version
+  - GO111MODULE=off go get -t -v github.com/zimmski/go-mutesting/...
 script:
   - go test -race -p=8 -parallel=8 -coverpkg ./... -coverprofile=full_coverage.out ./...
   # delete main go from coverage because we can't collect it
   - cat full_coverage.out | grep -v '/main.go:' > coverage.out
   - rm full_coverage.out
+
+  - go-mutesting --verbose ./...
 
   - golangci-lint run
 
